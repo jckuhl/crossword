@@ -10,13 +10,14 @@ def txt_to_json(file):
     if file[-4:] != '.txt':
         raise Exception('File must be a .txt')
 
-    result = '{ "words": ['
-    words = open('./words.txt', 'r').read().split('\n')
+    #convert the text list of words into a python list of words
+    words = open(file, 'r').read().split('\n')
 
     # get rid of any words with no values
     words = [word for word in words if len(word) != 0]
 
     # write the JSON string
+    result = '{ "words": ['
     i = 0
     for word in words:
         result += '"' + word + '"'
@@ -30,8 +31,11 @@ def txt_to_json(file):
 def create_json(string):
     """
     Take a JSON string and make a .JSON file
+
     """
-    file = open('words.json', 'w')
+    name = sys.argv[1]
+    name = name[:-4] + '.json'
+    file = open(name, 'w')
     file.write(string)
     file.close()
 
