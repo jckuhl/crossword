@@ -1,6 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-        "outFile": "./dist/script/app.bundle.js"
+        "outFile": "./dist/script/app.bundle.js",
+        "lib": ["es2017", "dom"]
     }
 }
