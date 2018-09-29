@@ -3,7 +3,7 @@ import sys
 def txt_to_json(file):
     """
     Takes a list of words in a text file
-    Returns a valind json file with words in an array
+    Returns a valid json file with words in an array
     """
 
     # accept only files that end in .txt

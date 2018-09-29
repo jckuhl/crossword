@@ -17,7 +17,9 @@
     "url": "https://github.com/jckuhl/crossword/issues"
   },
   "homepage": "https://github.com/jckuhl/crossword#readme",
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.17"
+  },
   "devDependencies": {
     "typescript": "^3.1.1"
   }

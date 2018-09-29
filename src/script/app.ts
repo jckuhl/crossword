@@ -25,13 +25,18 @@ class WordGame {
 
     /**
      * Creates an array populated with each letter of the alphabet proportional
-     * to their frequency
+     * to their frequency.  If we treat Q, the most infrequent letter as the value 
+     * of 1, then we can determine how many of each letter need to be in this array.
+     * This will lead to 56 'e' and 1 'q' and all the other letters at some range between.
+     * Thus, randomly picking 'e' should be approximately 11% and 'q' should be approximately 0.2%
      * @returns {string[]}
      */
     private createFreqArray(): string[] {
         // find the constant that sets q, the smallest value, to 1
         const k = 1 / this.ABC_FREQ.q
         let letters = [];
+
+        // now multiply each letter in the array by timesing its frequency % by k.
         Object.entries(this.ABC_FREQ).forEach(([letter, freq])=> {
             letters = letters.concat(letter.repeat(freq * k).split(''));
         });
