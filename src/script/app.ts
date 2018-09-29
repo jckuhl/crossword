@@ -5,7 +5,8 @@ class WordGame {
     private numLetters: number;
     private ABC: string[] = [];
 
-    // This is a percentage mapping of the most commonly used letters:
+    // This is a percentage mapping of the most commonly used letters
+    // source: https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html
     private ABC_FREQ = {
         e: 11.1607, a: 8.4966, r: 7.5809, i: 7.5448,
         o: 7.1635, t: 6.9509, n: 6.6544, s: 5.7351,
@@ -25,7 +26,7 @@ class WordGame {
     /**
      * Creates an array populated with each letter of the alphabet proportional
      * to their frequency
-     * @returns string[]
+     * @returns {string[]}
      */
     private createFreqArray(): string[] {
         // find the constant that sets q, the smallest value, to 1
@@ -39,7 +40,7 @@ class WordGame {
     
     /**
      * Grabs random letters from the ABC array that's been populated according to frequency
-     * @returns string[]
+     * @returns {string[]}
      */
     private getRandomLetters(): string[] {
         const random = ()=> Math.floor(Math.random() * this.ABC.length - 1);
@@ -52,7 +53,7 @@ class WordGame {
 
     /**
      * Fetches the words from Firebase
-     * @returns Promise<string[]> words if successful, or throws an error
+     * @returns {Promise<string[]>} words if successful, or throws an error
      */
     private getWords(): Promise<string[]> {
         return fetch('https://words-project-breakpoint.firebaseio.com/words.json')
@@ -63,8 +64,8 @@ class WordGame {
 
     /**
      * Determines if a word is possible for the available letters
-     * @param word string
-     * @returns boolean
+     * @param {word} string
+     * @returns {boolean}
      */
     private wordIsPossible(word: string): boolean {
         let possible = true;
