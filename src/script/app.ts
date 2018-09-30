@@ -1,4 +1,4 @@
-class WordGame {
+export class WordGame {
 
     private words: string[];
     private letters: string[];
@@ -18,6 +18,7 @@ class WordGame {
     }
 
     constructor(numLetters: number) {
+        this.words = [];
         this.numLetters = numLetters;
         this.ABC = this.createFreqArray();
         this.letters = this.getRandomLetters();
@@ -34,7 +35,7 @@ class WordGame {
     private createFreqArray(): string[] {
         // find the constant that sets q, the smallest value, to 1
         const k = 1 / this.ABC_FREQ.q
-        let letters = [];
+        let letters: string[] = [];
 
         // now multiply each letter in the array by timesing its frequency % by k.
         Object.entries(this.ABC_FREQ).forEach(([letter, freq])=> {

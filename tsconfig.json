@@ -1,14 +1,15 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
-        "outFile": "./dist/script/app.bundle.js",
-        "lib": ["es2017", "dom"],
-        "module": "es2015",
-        "target": "es5",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "allowSyntheticDefaultImports": true,
-        "removeComments": true,
-        "strict": true
+      "outDir": "./dist/script",
+      "noImplicitAny": true,
+      "lib": [
+          "es2015",
+          "dom",
+          "es2017"
+      ],
+      "module": "es6",
+      "target": "es5",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true
     }
-}
+  }
