@@ -3,6 +3,7 @@ export class WordGame {
     private words: string[];
     private letters: string[];
     private numLetters: number;
+    private numWords: number;
     private ABC: string[] = [];
 
     // This is a percentage mapping of the most commonly used letters
@@ -17,9 +18,10 @@ export class WordGame {
         j: 0.1965, q: 0.1962
     }
 
-    constructor(numLetters: number) {
+    constructor(numLetters: number, numWords: number) {
         this.words = [];
         this.numLetters = numLetters;
+        this.numWords = numWords
         this.ABC = this.createFreqArray();
         this.letters = this.getRandomLetters();
     }
@@ -98,11 +100,21 @@ export class WordGame {
                 } else {
                     return 0;
                 }
-            });
-        console.log(this.letters);
-        console.log(this.words);
+            })
+            .slice(0, this.numWords);
     }
 
-}
+    public getLetters(): string[] {
+        if(!this.letters) {
+            throw new Error('No letters, game has not been initialized');
+        }
+        return this.letters;
+    }
 
-new WordGame(10).startGame();
+    public getGameWords(): string[] {
+        if(!this.words) {
+            throw new Error('No letters, game has not been initialized');
+        }
+        return this.words;
+    }
+}

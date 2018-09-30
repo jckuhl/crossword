@@ -9,9 +9,16 @@
 <body>
     <div id="app">
         {{ name }}
-        <ul>
-            <li></li>
+        <ul v-if="mounted">
+            <li v-for="word of words">
+                <word-answer :answer="word"></word-answer>
+            </li>
         </ul>
+
+        <ul v-if="mounted">
+            <li v-for="letter of letters">{{ letter }}</li>
+        </ul>
+        <button @click="shuffle">Shuffle</button>
     </div>
     <script src="../dist/script/app.bundle.js"></script>
 </body>

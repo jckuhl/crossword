@@ -1,6 +1,7 @@
 words.txt
 words.csv
 makecsv.py
+stats.json
 
 /node_modules
 /dist
