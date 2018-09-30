@@ -91,7 +91,7 @@ export class WordGame {
      */
     async startGame() {
         this.words = (await this.getWords())
-            .filter(word => this.wordIsPossible(word) && word.length > 3 ? word : false)
+            .filter(word => this.wordIsPossible(word) && word.length > 3)
             .sort((wordA, wordB) => {
                 if(wordA.length > wordB.length) {
                     return -1;
@@ -113,7 +113,7 @@ export class WordGame {
 
     public getGameWords(): string[] {
         if(!this.words) {
-            throw new Error('No letters, game has not been initialized');
+            throw new Error('No words, game has not been initialized');
         }
         return this.words;
     }

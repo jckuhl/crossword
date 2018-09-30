@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACX,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,GAAG;EACd,iBAAG;IACC,OAAO,EAAE,YAAY;IACrB,MAAM,EAAE,GAAG;;ACFnB,IAAK;EACD,UAAU,ECJD,UAAU",
+"sources": ["../sass/_letter_holder.scss","../sass/primary.scss","../sass/_variables.scss"],
+"names": [],
+"file": "primary.css"
+}

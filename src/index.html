@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crossword</title>
+    <link rel="stylesheet" href="./css/primary.css">
 </head>
 <body>
     <div id="app">
@@ -15,7 +16,7 @@
             </li>
         </ul>
 
-        <ul v-if="mounted">
+        <ul v-if="mounted" class="letter-holder">
             <li v-for="letter of letters">{{ letter }}</li>
         </ul>
         <button @click="shuffle">Shuffle</button>
