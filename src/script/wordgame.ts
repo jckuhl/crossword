@@ -18,7 +18,7 @@ export class WordGame {
         j: 0.1965, q: 0.1962
     }
 
-    constructor(numLetters: number, numWords: number) {
+    constructor({numLetters, numWords}:{ numLetters: number, numWords: number}) {
         this.words = [];
         this.numLetters = numLetters;
         this.numWords = numWords

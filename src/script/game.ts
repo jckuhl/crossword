@@ -2,21 +2,19 @@ import Vue from 'vue';
 import { WordGame } from './wordgame';
 import { arrayShuffle } from './arrayshuffle';
 
-const VueApp: any = Vue;
-
 const WordAnswer = {
     props: ['answer'],
     template: '<span> {{ answer }} </span>'
 };
 
-const Main = new VueApp({
+const Main = new Vue({
     el: '#app',
     components: {
         'word-answer': WordAnswer
     },
     data: {
         name: 'hello',
-        wordGame: new WordGame(10, 10),
+        wordGame: new WordGame({numLetters: 10, numWords: 10}),
         mounted: false,
         letters: [],
         words: [],
