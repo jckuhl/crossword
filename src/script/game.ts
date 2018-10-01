@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { WordGame } from './wordgame';
-import { arrayShuffle }  from './arrayshuffle';
+import { arrayShuffle } from './arrayshuffle';
 
 const VueApp: any = Vue;
 
@@ -19,18 +19,25 @@ const Main = new VueApp({
         wordGame: new WordGame(10, 10),
         mounted: false,
         letters: [],
-        words: []
+        words: [],
+        guess: ''
     },
     methods: {
+        /**
+         * Shuffles the letters
+         */
         shuffle() {
             if(!this.mounted) {
                 return;
             }
             this.letters = arrayShuffle(this.letters);
-            console.log(this.letters);
+
+            // force Vue to update or the DOM won't reflect the changes.
+            this.$forceUpdate();
         }
     },
     async mounted() {
+        //must await start game, to fetch from the Firebase database
         await this.wordGame.startGame();
         this.letters = this.wordGame.getLetters();
         this.words = this.wordGame.getGameWords();

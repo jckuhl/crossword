@@ -52,11 +52,13 @@ export class WordGame {
      */
     private getRandomLetters(): string[] {
         const random = ()=> Math.floor(Math.random() * this.ABC.length - 1);
-        const letters = [];
-        for(let x = 0; x < this.numLetters; x++) {
-            letters.push(this.ABC[random()])
+
+        // ensure each letter is unique
+        const letters = new Set();
+        while(letters.size < this.numLetters) {
+            letters.add(this.ABC[random()]);
         }
-        return letters;
+        return Array.from(letters);
     }
 
     /**

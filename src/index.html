@@ -9,12 +9,14 @@
 </head>
 <body>
     <div id="app">
-        {{ name }}
         <ul v-if="mounted">
-            <li v-for="word of words">
+            <li v-for="(word, index) of words" :key="index">
                 <word-answer :answer="word"></word-answer>
             </li>
         </ul>
+
+        <input type="text" v-model="guess">
+        <button>Guess!</button>
 
         <ul v-if="mounted" class="letter-holder">
             <li v-for="letter of letters">{{ letter }}</li>
