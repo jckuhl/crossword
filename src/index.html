@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="./css/primary.css">
 </head>
 <body>
-    <div id="app">
+    <header>
+        <h1>Word Guessing Game</h1>
+        <a href="https://github.com/jckuhl/crossword" target="_blank">View on Github!</a>
+    </header>
+    <div id="app" class="container">
         <ul v-if="mounted">
             <li v-for="(word, index) of words" :key="index">
-                <word-answer :answer="word"></word-answer>
+                <word-answer 
+                    :answer="word" 
+                    :guess="guess"
+                    @correct-guess="recieveCorrectGuess">
+                </word-answer>
             </li>
         </ul>
 
         <input type="text" v-model="guess">
-        <button>Guess!</button>
+        <button @click="submitGuess">Guess!</button>
 
         <ul v-if="mounted" class="letter-holder">
             <li v-for="letter of letters">{{ letter }}</li>
